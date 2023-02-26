@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DATN.Models.EF.BookingHotel>
+@if (Model != null && Model.Any())
+{
+    var i = 0;
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image: url(../Content/assests/images/loginback.jpg) ">
+                            <div class="banner_category">
+                                <a href="categories.html">@item.NameBookingHotel</a>
+                            </div>
+                        </div>
+                    </div>
+                    if (i == 2)
+                    {
+                        break;
+                    }    
+                    i++;
+                }
+            </div>
+        </div>
+    </div>
+
+}
+@*@{
+        ViewBag.Title = "_MenuBookingHotel";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }*@
+

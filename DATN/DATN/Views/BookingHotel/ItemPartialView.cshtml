@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DATN.Models.EF.BookingRoom>
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        var strImage = "";
+        var img = item.ImageRoom.FirstOrDefault();
+        if (img != null)
+        {
+            strImage = img.src;
+        }
+        <div class="product-item men">
+            <div class="product discount product_filter">
+                <div class="product_image">
+                    <img src="~/Upload/loginback233151880.jpg" alt="@item.NameBookingRoom">
+                </div>
+                <div class="favorite favorite_left"></div>
+                <div class="product_info">
+                    <h6 class="product_name"><a href="single.html">@item.NameBookingRoom</a></h6>
+                    <div class="product_price">@item.PriceBookingRoom</div>
+                </div>
+            </div>
+            <div class="red_button add_to_cart_button"><a href="#"> add to cart</a></div>
+        </div>
+
+    }
+}

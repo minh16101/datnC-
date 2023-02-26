@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DATN.Models.EF.BookingHotel>
+@if (Model != null && Model.Any())
+{
+    <!-- New Arrivals -->
+
+    <div class="new_arrivals">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_title new_arrivals_title">
+                        <h2>New Arrivals</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col text-center">
+                    <div class="new_arrivals_sorting">
+                        <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+                            @*sua data filter*@
+                            @foreach (var item in Model)
+                            {
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">@item.NameBookingHotel</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+                        @Html.Action("ItemPartialView","BookingHotel")
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@*@{
+        ViewBag.Title = "_MenuBookingHotel";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }*@
+
